@@ -74,4 +74,23 @@ Otimização utilizando Multistage Building:
   - -f = caso mude o arquivo, laravel = pasta
   - docker images | grep laravel = buscar todas as imagens em laravel
 Nginx como proxy reverso:
+  - docker build -t lucabelezal/nginx:prod . -f Dockerfile.prod 
+  - . = indica que o Dockerfile.prod está no mesmo dir em que o comando será exec
+  - docker network list 
+  - docker network create laranet
+  - docker run -d --network laranet --name laravel lucabelezal/laravel:prod
+  - docker ps
+  - docker run -d --network laranet --name nginx -p 8080:80 lucabelezal/nginx:prod
+  - docker ps
+  - docker logs nginx
+  - adicionar link simbolico
+  - docker rm laravel -f
+  - docker rm nginx -f
+  - docker build -t lucabelezal/laravel:prod . -f Dockerfile.prod
+  - docker build -t lucabelezal/nginx:prod . -f Dockerfile.prod
+  - docker run -d --network laranet --name laravel lucabelezal/laravel:pro
+  - docker run -d --network laranet --name nginx -p 8080:80 lucabelezal/nginx:prod
+
+- DOCKER-COMPOSE:
+Iniciando com Docker-compose:
   - 
