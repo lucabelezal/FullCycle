@@ -1,0 +1,77 @@
+Full Cycle Anotações
+
+# Docker
+- NETWORK:
+Entendento tipos de Network: Itrodução aos tipos de redes
+  - bridge, host, none são as mais usadas
+Trabalhando com host:
+  - docker network ls
+  - docker network prune
+  - docker run -d -it --name ubuntu1 bash
+  - docker ps
+  - docker run -d -it --name ubuntu2 bash
+  - docker network inspect bridge
+  - docker attach ubuntu1
+  - bash-5.2# ping 172.17.0.3
+  - docker rm ubuntu1 && docker rm ubuntu2
+  - docker network create --driver bridge minharede
+  - docker network ls
+  - docker run -dit --name ubuntu1 --network minharede bash
+  - docker run -dit --name ubuntu2 --network minharede bash
+  - docker exec -it ubuntu1 bash
+  - bash-5.2# ping ubuntu2
+  - docker run -dit --name ubuntu3 bash
+  - docker exec -it ubuntu3 bash
+  - bash-5.2# ping ubuntu2
+  - docker network connect minharede ubuntu3
+  - docker exec -it ubuntu3 bash
+  - bash-5.2# ping ubuntu2
+  - docker network inspect minharede
+Trabalhando com host:
+  - docker run --rm -d --name nginx --network host nginx
+  - curl http://localhost
+Container acessando nossa maquina:
+  - docker run --rm -it --name ubuntu ubuntu bash
+  - apt-get update
+  - apt-get install curl -y
+  - curl http://host.docker.internal:8000
+
+- COLOCANDO EM PRÁTICA:
+Instalando framework em um container:
+  - docker run -it --name php php:7.4-cli bash
+  - apt-get update
+  - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
+  - php composer.phar create-project laravel/laravel laravel
+  - apt-get install libzip-dev -y
+  - docker-php-ext-install zip
+  - apt-get install git -y
+Ativando entrypoint e command:
+  - docker build -t lucabelezal/laravel:latest .
+  - root@49eb78dd4418:/var/www/laravel# php artisan serve
+  - docker run --rm --name laravel -p 8000:8000 lucabelezal/laravel
+  - php artisan serve --help
+  - docker run --rm -d --name laravel -p 8000:8000 lucabelezal/laravel
+  - docker logs laravel
+  - docker rm laravel -f
+  - docker run --rm -d --name laravel -p 8001:8001 lucabelezal/laravel --host=0.0.0.0 --port=8001
+Criando aplicação Node.js sem o Node:
+  - docker run --rm -it -v $(pwd)/:/usr/src/app -p 3000:3000 node:15 bash
+  - cd /usr/src/app
+  - root@57a867c5910c:/usr/src/app# npm init
+  - root@57a867c5910c:/usr/src/app# npm install express --save
+  - root@57a867c5910c:/usr/src/app# node index.js
+Gerando imagem da aplicação Node.js:
+  - docker build -t lucabelezal/hello-express:latest .
+  - docker run -p 3000:3000 lucabelezal/hello-express:latest
+  - docker build -t lucabelezal/hello-express:latest node/ -f node/Dockerfile.prod 
+
+- OTIMIZANDO IMAGENS:
+Otimização utilizando Multistage Building:
+  - docker build -t lucabelezal/laravel:prod laravel -f laravel/Dockerfile.prod
+  - -f = caso mude o arquivo, laravel = pasta
+  - docker images | grep laravel = buscar todas as imagens em laravel
+Nginx como proxy reverso:
+  - 
