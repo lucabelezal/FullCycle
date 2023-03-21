@@ -93,4 +93,7 @@ Nginx como proxy reverso:
 
 - DOCKER-COMPOSE:
 Iniciando com Docker-compose:
+  - docker-compose up
+  - Identação certa faz toda diferença
+Buildando images com Docker-compose:
   - 
