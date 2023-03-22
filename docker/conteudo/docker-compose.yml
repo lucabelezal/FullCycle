@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  app:
+    build: 
+      context: node
+    container_name: nodeapp   
+    volumes:
+      - ./node:/usr/src/app
+    tty: true
+    networks:
+      - node-network  
   db:
     image: mysql:5.7
     platform: linux/amd64
@@ -15,7 +24,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     networks:
       - node-network
-
 networks:
   node-network:
     driver: bridge
