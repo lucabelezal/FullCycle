@@ -121,3 +121,15 @@ Node vs MySQL:
   - node index.js
   - mysql> select * from people;
 Dependência entre containers:
+  - adicionar dockerize ao Dokerfile da pasta node
+  - docker-compose up -d --build
+  - docker exec -it nodeapp bash
+  - dockerize
+  - dockerize -wait tcp://db:3306
+  - docker-compose stop db
+  - docker-compose ps
+  - dockerize -wait tcp://db:3306 -> 10s padrão
+  - dockerize -wait tcp://db:3306 -timeout 50s
+  - docker-compose up -d --build
+  - docker-compose ps
+  - docker logs nodeapp
