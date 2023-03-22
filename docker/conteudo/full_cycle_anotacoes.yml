@@ -105,4 +105,19 @@ Criando banco de dados MySQL:
   - docker-compose up -d
   - docker logs db
 Configurando app node com docker-compose:
-  -
+  - docker-compose up -d --build
+  - docker exec -it nodeapp bash
+  - node index.js
+Node vs MySQL:
+  - docker exec -it db bash
+  - mysql -uroot -p
+  - mysql> show databases;
+  - mysql> use nodedb;
+  - mysql> create table people(id int not null auto_increment, name varchar(255), primary key(id));
+  - mysql> show tables;
+  - mysql> desc people;
+  - docker exec -it nodeapp bash
+  - npm install mysql --save
+  - node index.js
+  - mysql> select * from people;
+Dependência entre containers:
