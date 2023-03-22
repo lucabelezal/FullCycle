@@ -96,4 +96,13 @@ Iniciando com Docker-compose:
   - docker-compose up
   - Identação certa faz toda diferença
 Buildando images com Docker-compose:
-  - 
+  - docker rm $(docker ps -a -q) -f
+  - docker-compose up -d
+  - docker-compose ps
+  - docker-compose up -d --build
+Criando banco de dados MySQL:
+  - docker rm $(docker ps -a -q) -f
+  - docker-compose up -d
+  - docker logs db
+Configurando app node com docker-compose:
+  -
