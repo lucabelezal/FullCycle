@@ -133,3 +133,4 @@ Dependência entre containers:
   - docker-compose up -d --build
   - docker-compose ps
   - docker logs nodeapp
+  - alternativa: https://github.com/codeedu/docker-wait-for-it 
