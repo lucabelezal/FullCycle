@@ -1,2 +1,2 @@
 
-Imagem [Docker Hub](https://hub.docker.com/repository/docker/lucabelezal/fullcycle/general)
+Imagem [Docker Hub](https://hub.docker.com/repository/docker/lucabelezal/desafio-go-fullcycle/general)
