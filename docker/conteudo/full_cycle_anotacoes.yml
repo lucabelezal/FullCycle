@@ -135,3 +135,5 @@ Dependência entre containers:
   - docker-compose ps
   - docker logs nodeapp
   - alternativa: https://github.com/codeedu/docker-wait-for-it 
+    - ATENÇÃO: PRA FUNCIONAR O DOCKER-COMPOSE DESSAS AULAS PRECISA ANTES SEGUIR 
+  OS COMANDOS ACIMA PARA CRIAR A TABLE, DO CONTRARIO O NODEAPP NÃO IRÁ FUNCIONAR
