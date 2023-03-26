@@ -27,7 +27,7 @@ Divirta-se!
 
 Imagem [Docker Hub](https://hub.docker.com/repository/docker/lucabelezal/desafio-go-fullcycle/general)
 
-Como executar:
+Executar:
 ```
 docker run lucabelezal/desafio-go-fullcycle
 ```
