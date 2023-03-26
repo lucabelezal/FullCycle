@@ -21,7 +21,7 @@ Suba tudo em um repositório e faça a entrega.
 
 Executar:
 ```
-docker-compose up -d
+docker-compose up --build -d
 ```
 Acessar:
 ```
