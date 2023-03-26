@@ -116,6 +116,7 @@ Node vs MySQL:
   - mysql> create table people(id int not null auto_increment, name varchar(255), primary key(id));
   - mysql> show tables;
   - mysql> desc people;
+  - mysql> select * from people;
   - docker exec -it nodeapp bash
   - npm install mysql --save
   - node index.js
