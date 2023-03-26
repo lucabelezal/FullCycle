@@ -23,7 +23,8 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./mysql/dbdata:/var/lib/mysql
+      - ./mysql/nodedb:/var/lib/mysql
+      # - ./mysql:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
